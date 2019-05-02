@@ -4,6 +4,14 @@
   max-height: 5em;
 }
 
+.sample-code-container{
+  display: flex;
+}
+
+.sample-code-container > div{
+  flex: 1;
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 

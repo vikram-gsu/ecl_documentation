@@ -12,6 +12,121 @@ const CompLibrary = require('../../core/CompLibrary.js');
 const MarkdownBlock = CompLibrary.MarkdownBlock; /* Used to read markdown */
 const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
+const LandingPageQuery = `# Different Types of Joins in ECL
+
+\`\`\`ecl
+MyRec := RECORD
+  STRING1 Value1;
+  STRING1 Value2;
+END;
+
+LeftFile := DATASET([{'C','A'},
+                      {'X','B'},
+                      {'A','C'}],MyRec);
+
+RightFile := DATASET([{'C','X'},
+                      {'B','Y'},
+                      {'A','Z'}],MyRec);
+
+MyOutRec := RECORD
+  STRING1 Value1;
+  STRING1 LeftValue2;
+  STRING1 RightValue2;
+END;
+
+MyOutRec JoinThem(MyRec L, MyRec R) := TRANSFORM
+  SELF.Value1 := IF(L.Value1<>'', L.Value1, R.Value1);
+  SELF.LeftValue2 := L.Value2;
+  SELF.RightValue2 := R.Value2;
+END;
+
+InnerJoinedRecs := JOIN(LeftFile,RightFile, LEFT.Value1 = RIGHT.Value1, JoinThem(LEFT,RIGHT));
+LOutJoinedRecs := JOIN(LeftFile,RightFile, LEFT.Value1 = RIGHT.Value1, JoinThem(LEFT,RIGHT), LEFT OUTER);
+ROutJoinedRecs := JOIN(LeftFile,RightFile, LEFT.Value1 = RIGHT.Value1, JoinThem(LEFT,RIGHT), RIGHT OUTER);
+FOutJoinedRecs := JOIN(LeftFile,RightFile, LEFT.Value1 = RIGHT.Value1, JoinThem(LEFT,RIGHT), FULL OUTER);
+LOnlyJoinedRecs := JOIN(LeftFile,RightFile, LEFT.Value1 = RIGHT.Value1, JoinThem(LEFT,RIGHT), LEFT ONLY);
+ROnlyJoinedRecs := JOIN(LeftFile,RightFile, LEFT.Value1 = RIGHT.Value1, JoinThem(LEFT,RIGHT), RIGHT ONLY);
+FOnlyJoinedRecs := JOIN(LeftFile,RightFile, LEFT.Value1 = RIGHT.Value1, JoinThem(LEFT,RIGHT), FULL ONLY);
+
+
+OUTPUT(InnerJoinedRecs,,NAMED('Inner'));
+OUTPUT(LOutJoinedRecs,,NAMED('LeftOuter'));
+OUTPUT(ROutJoinedRecs,,NAMED('RightOuter'));
+OUTPUT(FOutJoinedRecs,,NAMED('FullOuter'));
+OUTPUT(LOnlyJoinedRecs,,NAMED('LeftOnly'));
+OUTPUT(ROnlyJoinedRecs,,NAMED('RightOnly'));
+OUTPUT(FOnlyJoinedRecs,,NAMED('FullOnly'));
+\`\`\`
+`
+const LandingPageResult = `
+#### Left Dataset(LeftFile)
+
+| Value1  | Value2 |
+|---------|--------|
+| C | A |
+| X | B |
+| A | C |
+
+#### Right Dataset (RightFile)
+
+| Value1  | Value2 |
+|---------|--------|
+| C | X |
+| B | Y |
+| A | Z |
+
+#### Inner Join Results (InnerJoinedRecs)
+
+|Rec#| Value1  | LeftValue2 | RightValue2 |
+|----|---------|------------|------------|
+|1| A | C | Z |
+|2| C | A | X |
+
+#### Left Outer Join Results (LOutJoinedRecs)
+
+|Rec#| Value1  | LeftValue2 | RightValue2 |
+|----|---------|------------|------------|
+|1| A | C | Z |
+|2| C | A | X |
+|3| X | B |  |
+
+#### Right Outer Join Results (ROutJoinedRecs)
+
+|Rec#| Value1  | LeftValue2 | RightValue2 |
+|----|---------|------------|------------|
+|1| A | C | Z |
+|2| B |   | Y |
+|3| C | A | X |
+
+#### Full Outer Join Results (FOutJoinedRecs)
+
+|Rec#| Value1  | LeftValue2 | RightValue2 |
+|----|---------|------------|------------|
+|1| A | C | Z |
+|2| B |   | Y |
+|3| C | A | X |
+|4| X | B |   |
+
+#### Left Only Join Results (LOnlyJoinedRecs)
+
+|Rec#| Value1  | LeftValue2 | RightValue2 |
+|----|---------|------------|------------|
+|1| X | B |  |
+
+#### Right Only Join Results (ROnlyJoinedRecs)
+
+|Rec#| Value1  | LeftValue2 | RightValue2 |
+|----|---------|------------|------------|
+|1| B |  | Y |
+
+#### Full Only Join Results (FOnlyJoinedRecs)
+
+|Rec#| Value1  | LeftValue2 | RightValue2 |
+|----|---------|------------|------------|
+|1| B |  | Y |
+|2| X | B|  |
+
+`
 
 class HomeSplash extends React.Component {
   render() {
@@ -92,11 +207,19 @@ class Index extends React.Component {
     );
 
     const FeatureCallout = () => (
-      <div
-        className="productShowcaseSection paddingBottom"
-        style={{textAlign: 'center'}}>
-        <h2>Feature Callout</h2>
-        <MarkdownBlock>These are features of this project</MarkdownBlock>
+      <div className="sample-code-container">
+        <div
+          className="productShowcaseSection paddingBottom"
+          style={{textAlign: 'left',width:'50%'}}>
+          <MarkdownBlock>{LandingPageQuery}</MarkdownBlock>
+        </div>
+
+        <div
+          className="productShowcaseSection paddingBottom"
+          style={{textAlign: 'left',width:'50%'}}>
+          <MarkdownBlock>{LandingPageResult}</MarkdownBlock>
+        </div>
+
       </div>
     );
 
@@ -191,6 +314,7 @@ class Index extends React.Component {
     return (
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
+        <FeatureCallout />
       </div>
     );
   }

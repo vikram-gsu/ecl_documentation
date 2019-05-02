@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="492.00000pt" height="370.00000pt" viewBox="0 0 480 360" preserveAspectRatio="none" id="svg1306" sodipodi:version="0.32" inkscape:version="0.45.1" sodipodi:docname="VennFFFF.svg" sodipodi:docbase="/home/davidk/Pictures/WP/Venn" inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata id="metadata1325">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs1323"/>
+  <sodipodi:namedview inkscape:window-height="712" inkscape:window-width="1024" inkscape:pageshadow="2" inkscape:pageopacity="0.0" borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base" inkscape:zoom="0.70710678" inkscape:cx="158.71736" inkscape:cy="270.57289" inkscape:window-x="5" inkscape:window-y="49" inkscape:current-layer="g1355" borderlayer="top" inkscape:showpageshadow="false"/>
+  <style id="style1308">
+
+text {
+	font-family : Verdana, Tahoma, sans-serif;
+	font-size : 40px;
+	fill : #999;
+	stroke : none;
+}
+</style>
+  <g id="g1355" transform="matrix(0.966249,0.000000,0.000000,0.965866,7.696214,7.142784)">
+    <rect y="-5.4027090" x="-5.4683847" height="368.74026" width="491.77719" id="rect1333" style="opacity:1.0000000;fill:#88888d;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.0000000;stroke-linejoin:miter;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000"/>
+    <rect style="fill:#ffffff;fill-opacity:1.0000000;stroke:#000000;stroke-width:6.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" id="rect1310" height="326.84933" width="449.85287" y="15.525779" x="15.163610"/>
+    <circle style="fill:#ffffff;fill-opacity:1.0000000;stroke:#000000;stroke-width:6.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" id="circle1312" r="120.00000" cy="180.00000" cx="180.00000" sodipodi:cx="180.00000" sodipodi:cy="180.00000" sodipodi:rx="120.00000" sodipodi:ry="120.00000"/>
+    <circle style="fill:#ffffff;fill-opacity:1.0000000;stroke:#000000;stroke-width:6.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" id="circle1316" r="120.00000" cy="180.00000" cx="300.00000" sodipodi:cx="300.00000" sodipodi:cy="180.00000" sodipodi:rx="120.00000" sodipodi:ry="120.00000"/>
+    <path style="fill:#ffffff;fill-opacity:1.0000000;stroke:#000000;stroke-width:6.0000000;stroke-miterlimit:4.0000000;stroke-dasharray:none;stroke-opacity:1.0000000" id="path1320" d="M 240.00000,76.076950 C 277.12813,97.512885 300.00000,137.12813 300.00000,180.00000 C 300.00000,222.87187 277.12813,262.48712 240.00000,283.92305 C 202.87187,262.48712 180.00000,222.87187 180.00000,180.00000 C 180.00000,137.12813 202.87187,97.512885 240.00000,76.076950"/>
+  </g>
+<!-- outside area --><!-- circle A --><!-- circle B --><!-- overlap --></svg>

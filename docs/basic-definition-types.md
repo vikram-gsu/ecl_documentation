@@ -10,6 +10,10 @@ The basic types of Definitions used most commonly throughout ECL coding are: **B
 
 A Boolean Definition is defined as any Definition whose definition is a logical expression resulting in a TRUE/FALSE result. For example, the following are all Boolean Definitions:
 
+<img src="assets/DosConjuntos00.svg" style="width:7em;height:5em;display:inline" />
+
+
+
 ```ecl
 
 IsBoolTrue  := TRUE;
